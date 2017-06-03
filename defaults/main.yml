@@ -4,6 +4,7 @@ openvpn_enabled: yes                                # The role is enabled
 
 openvpn_etcdir: /etc/openvpn
 openvpn_keydir: "{{openvpn_etcdir}}/keys"
+openvpn_client_config_dir: "{{ openvpn_etcdir }}/ccd"
 
 # Installation settings
 openvpn_use_external_repo: false                    # Enable upstream OpenVPN repository
@@ -48,6 +49,7 @@ openvpn_key_size: 1024
 
 openvpn_clients: [client]                         # Make clients certificate
 openvpn_clients_revoke: []                        # Revoke clients certificates
+openvpn_client_cert_not_required: no
 
 # Use PAM authentication
 openvpn_use_pam: yes

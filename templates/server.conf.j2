@@ -52,7 +52,7 @@ tls-server
 {% endif %}
 
 # Client configuration directory.
-{% if openvpn_client_config_dir is defined -%}
+{% if openvpn_client_config_dir is defined %}
 client-config-dir {{ openvpn_client_config_dir }}
 {% endif %}
 
@@ -147,8 +147,10 @@ group nogroup
 client-to-client
 {% endif %}
 
-{% if openvpn_use_pam %}
+{% if openvpn_client_cert_not_required %}
 client-cert-not-required
+{% endif %}
+{% if openvpn_use_pam %}
 plugin {{openvpn_use_pam_plugin|default(openvpn_use_pam_plugin_distribution)}} openvpn
 {% endif %}
 
